@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1><%= @movie.title %>
+
+        <small>
+          <%= link_to "#{@movie.id}/edit", :method => :get, :title => "Update  #{@movie.title}" do %>
+            <em class="fas fa-pencil-alt"></em>
+          <% end %>
+        </small>
+        <small>
+
+          <%= link_to @movie, :method => :delete, :title => "Delete #{@movie.title}", data: { :confirm => "You sure?", disable_with: "Processing ..." } do %>
+            <em class="fas fa-trash"></em>
+          <% end %>
+
+        </small>
+      </h1>
+      <hr>
+      <table class="table table-bordered" >
+        <caption>Description of movie</caption>
+        <tbody>
+        <tr>
+          <th scope="row">title</th>
+          <td><%= @movie.title %></td>
+        </tr>
+        <tr>
+          <th scope="row">Overview</th>
+          <td><%= @movie.overview %></td>
+        </tr>
+        <tr>
+          <th scope="row">Poster Url</th>
+          <td><%= @movie.poster_url %></td>
+        </tr>
+        <tr>
+          <th scope="row">Rating</th>
+          <td><%= @movie.rating %></td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <br>
+      <%= link_to "See all movies", movies_path %>
+    </div>
+  </div>
+</div>
